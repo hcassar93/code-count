@@ -846,7 +846,7 @@ local function countAllDirectories()
         print("DEBUG: Git-tracked files size:", repoSizeMB and (repoSizeMB .. "MB") or "unknown")
         
         -- Stricter thresholds for batch processing
-        local maxFiles = 3000  -- More conservative for batch
+        local maxFiles = 10000  -- More conservative for batch
         local maxSizeMB = 200  -- More conservative for batch
         
         if fileCount and fileCount > maxFiles then
@@ -1300,7 +1300,7 @@ updateMenubar = function()
         return
     end
     
-    menubar:setTitle("📊")
+    menubar:setTitle("{}") 
     menubar:setTooltip("Code Count")
     
     local menuItems = {
@@ -1528,7 +1528,7 @@ updateMenubar = function()
                         end
                     
                         -- Safety thresholds with more conservative limits
-                        local maxFiles = 5000  -- Reduced from 8000
+                        local maxFiles = 10000  -- Reduced from 8000
                         local maxSizeMB = 200  -- Reduced from 500
                         
                         print("CRASH DEBUG: Applying safety thresholds - maxFiles:", maxFiles, "maxSizeMB:", maxSizeMB)
